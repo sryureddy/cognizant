@@ -3,51 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Q9 - Multi Column Layout</title>
+  <title>Q10 - Responsive Design</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f8fafc;
       margin: 0;
-      padding: 30px;
+      padding: 0;
+      background: #f8fafc;
     }
 
-    .news {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 24px;
+    header {
+      background: #1d4ed8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: #dbeafe;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e3a8a;
+      font-weight: bold;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 30px;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 100%;
       border-radius: 12px;
     }
 
-    .article {
-      column-count: 2;
-      column-gap: 30px;
-      column-rule: 1px solid gray;
-      line-height: 1.7;
-      text-align: justify;
+    .content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
     }
 
-    h1 {
-      margin-bottom: 18px;
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        font-size: 1rem;
+      }
+
+      header {
+        padding: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="news">
-    <h1>Community Bulletin</h1>
-    <div class="article">
-      <p>
-        The community center is hosting multiple events this week, including music performances,
-        art workshops, and food festivals. Residents are encouraged to participate and support
-        local talent. The city council has also announced cleanup drives and awareness programs.
-      </p>
-      <p>
-        Volunteers are needed for registration desks, event coordination, and crowd management.
-        Educational sessions will be conducted for students and families. The bulletin will be
-        updated every week with new announcements and schedules.
-      </p>
+  <header>
+    <h1>Responsive Community Portal</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="Community Event" />
+    <div class="content">
+      This layout uses flexible units, Grid, and a media query for screens smaller than 768px.
     </div>
-  </div>
+  </section>
 </body>
 </html>
