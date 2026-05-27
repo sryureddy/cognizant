@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q4 - Color & Background Styling</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background-color: #1d4ed8;
+      background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .section-header {
+      background: linear-gradient(90deg, #f97316, #ef4444);
+      padding: 14px 18px;
+      border-radius: 10px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .text {
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffffff;
+      color: #1e3a8a;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="section">
+      <div class="section-header">
+        <h1>City Council Event Portal</h1>
+      </div>
+      <p class="text">
+        This page uses HEX colors, RGBA transparency, a background image, and a gradient header.
+      </p>
+      <span class="badge">Live Events</span>
+    </div>
+  </div>
+</body>
+</html>

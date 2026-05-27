@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q1 - CSS Inclusion Methods</title>
+
+  <!-- Embedded CSS -->
+  <style>
+    /* Body styles */
+    body {
+      background-color: #f3f7fb;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 30px;
+    }
+
+    /* Header styles */
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .note {
+      color: #444;
+      line-height: 1.6;
+    }
+  </style>
+
+  <!-- External CSS link (for real project use styles.css) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Inline style -->
+    <h1 style="color: red;">Local Community Event Portal</h1>
+
+    <p class="note">
+      This page shows inline CSS, internal CSS, and an external stylesheet link.
+    </p>
+
+    <h2>Welcome to the event portal</h2>
+    <p>Reusable styles should go into styles.css.</p>
+  </div>
+
+  <!--
+  styles.css content:
+  .container {
+    border: 1px solid #ddd;
+  }
+  -->
+</body>
+</html>

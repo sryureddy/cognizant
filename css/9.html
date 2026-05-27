@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q9 - Multi Column Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .news {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .article {
+      column-count: 2;
+      column-gap: 30px;
+      column-rule: 1px solid gray;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="news">
+    <h1>Community Bulletin</h1>
+    <div class="article">
+      <p>
+        The community center is hosting multiple events this week, including music performances,
+        art workshops, and food festivals. Residents are encouraged to participate and support
+        local talent. The city council has also announced cleanup drives and awareness programs.
+      </p>
+      <p>
+        Volunteers are needed for registration desks, event coordination, and crowd management.
+        Educational sessions will be conducted for students and families. The bulletin will be
+        updated every week with new announcements and schedules.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
