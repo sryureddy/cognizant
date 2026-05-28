@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        .card{
+            background: white;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        button{
+            padding: 10px 15px;
+            background: darkblue;
+            color: white;
+            border: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Community Events</h1>
+
+    <button id="showBtn">
+        Show Events
+    </button>
+
+    <button id="hideBtn">
+        Hide Events
+    </button>
+
+    <button id="registerBtn">
+        Register
+    </button>
+
+    <div class="card">
+        <h3>Music Concert</h3>
+        <p>Category: Music</p>
+    </div>
+
+    <div class="card">
+        <h3>Coding Workshop</h3>
+        <p>Category: Education</p>
+    </div>
+
+    <script>
+
+        // Handle click event
+        $("#registerBtn").click(function(){
+
+            alert("Registration Successful!");
+
+        });
+
+        // fadeIn()
+        $("#showBtn").click(function(){
+
+            $(".card").fadeIn();
+
+        });
+
+        // fadeOut()
+        $("#hideBtn").click(function(){
+
+            $(".card").fadeOut();
+
+        });
+
+        // Benefit of frameworks
+        console.log(
+            "React and Vue help build reusable and scalable UI components."
+        );
+
+    </script>
+
+</body>
+</html>

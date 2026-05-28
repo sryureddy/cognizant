@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        select, input{
+            padding: 8px;
+            margin: 10px 0;
+            width: 250px;
+        }
+
+        .card{
+            background: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px gray;
+        }
+
+        button{
+            padding: 8px 15px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Community Events</h1>
+
+    <!-- Search using keydown -->
+    <input 
+        type="text"
+        id="searchBox"
+        placeholder="Search event by name"
+        onkeydown="searchEvent()"
+    >
+
+    <br>
+
+    <!-- Filter using onchange -->
+    <select id="categoryFilter" onchange="filterEvents()">
+
+        <option value="All">
+            All Categories
+        </option>
+
+        <option value="Music">
+            Music
+        </option>
+
+        <option value="Education">
+            Education
+        </option>
+
+        <option value="Sports">
+            Sports
+        </option>
+
+    </select>
+
+    <div id="eventContainer"></div>
+
+    <script>
+
+        // Event data
+        const events = [
+
+            {
+                name: "Music Concert",
+                category: "Music",
+                seats: 5
+            },
+
+            {
+                name: "JavaScript Workshop",
+                category: "Education",
+                seats: 3
+            },
+
+            {
+                name: "Football Match",
+                category: "Sports",
+                seats: 4
+            },
+
+            {
+                name: "Dance Night",
+                category: "Music",
+                seats: 2
+            }
+
+        ];
+
+        const container =
+            document.getElementById("eventContainer");
+
+        // Display events
+        function displayEvents(eventList){
+
+            container.innerHTML = "";
+
+            eventList.forEach((event, index) => {
+
+                const card =
+                    document.createElement("div");
+
+                card.classList.add("card");
+
+                card.innerHTML = `
+
+                    <h3>${event.name}</h3>
+
+                    <p>
+                        Category: ${event.category}
+                    </p>
+
+                    <p>
+                        Seats Available: ${event.seats}
+                    </p>
+
+                    <button onclick="register(${index})">
+                        Register
+                    </button>
+
+                `;
+
+                container.appendChild(card);
+
+            });
+
+        }
+
+        // onclick for Register button
+        function register(index){
+
+            if(events[index].seats > 0){
+
+                events[index].seats--;
+
+                alert("Registration Successful!");
+
+            }
+            else{
+
+                alert("No seats available!");
+
+            }
+
+            filterEvents();
+
+        }
+
+        // onchange for category filter
+        function filterEvents(){
+
+            const category =
+                document.getElementById("categoryFilter").value;
+
+            let filteredEvents;
+
+            if(category === "All"){
+
+                filteredEvents = events;
+
+            }
+            else{
+
+                filteredEvents = events.filter(event =>
+                    event.category === category
+                );
+
+            }
+
+            // Apply search also
+            const searchText =
+                document.getElementById("searchBox")
+                .value
+                .toLowerCase();
+
+            filteredEvents = filteredEvents.filter(event =>
+                event.name.toLowerCase()
+                .includes(searchText)
+            );
+
+            displayEvents(filteredEvents);
+
+        }
+
+        // keydown for quick search
+        function searchEvent(){
+
+            setTimeout(() => {
+
+                filterEvents();
+
+            }, 100);
+
+        }
+
+        // Initial display
+        displayEvents(events);
+
+    </script>
+
+</body>
+</html>
