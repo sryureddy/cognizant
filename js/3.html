@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration System</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1{
+            color: darkblue;
+        }
+
+        .event{
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px gray;
+        }
+
+        button{
+            padding: 8px 15px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Upcoming Events</h1>
+
+    <div id="eventContainer"></div>
+
+    <script>
+
+        // Event List
+        const events = [
+            {
+                name: "Music Fest",
+                date: "2026-06-15",
+                seats: 10
+            },
+            {
+                name: "Coding Workshop",
+                date: "2024-01-10",
+                seats: 5
+            },
+            {
+                name: "Sports Meet",
+                date: "2026-07-20",
+                seats: 0
+            }
+        ];
+
+        const container = document.getElementById("eventContainer");
+
+        // Current date
+        const today = new Date();
+
+        // Loop through events using forEach()
+        events.forEach((event, index) => {
+
+            let eventDate = new Date(event.date);
+
+            // if-else to hide past or full events
+            if (eventDate > today && event.seats > 0) {
+
+                container.innerHTML += `
+                    <div class="event">
+                        <h3>${event.name}</h3>
+                        <p>Date: ${event.date}</p>
+                        <p>Available Seats: <span id="seat${index}">${event.seats}</span></p>
+
+                        <button onclick="register(${index})">
+                            Register
+                        </button>
+                    </div>
+                `;
+            }
+            else{
+                console.log(`${event.name} is hidden`);
+            }
+
+        });
+
+        // Registration function with try-catch
+        function register(index){
+
+            try{
+
+                if(events[index].seats <= 0){
+                    throw "No seats available!";
+                }
+
+                events[index].seats--;
+
+                document.getElementById(`seat${index}`).innerHTML =
+                    events[index].seats;
+
+                alert("Registration Successful!");
+
+            }
+            catch(error){
+
+                alert("Error: " + error);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
