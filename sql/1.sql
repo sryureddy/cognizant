@@ -5,6 +5,7 @@
 --     city VARCHAR(100) NOT NULL,
 --     registration_date DATE NOT NULL
 -- );
+
 -- CREATE TABLE Events (
 --     event_id INT PRIMARY KEY AUTO_INCREMENT,
 --     title VARCHAR(200) NOT NULL,
